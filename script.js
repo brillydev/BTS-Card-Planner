@@ -30,7 +30,7 @@ function func_travelerNumDays () {
         content+= '<button type="button" value=' + i + ' class="btn btn-xl btn-success">' + i + ' days</button>';
     }
     
-    content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numDays">Specify number of days</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numDays"><span class="input-group-addon">days</span></div><button type="submit" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
+    content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numDays">Specify number of days</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numDays"><span class="input-group-addon">days</span></div><button type="button" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
         
     selectCtl.append(content);
 
@@ -48,6 +48,7 @@ function func_travelerNumDays () {
         } else {
             numDays = numDaysval;
             func_numTrips('On average, how many BTS trips do you plan to take per day?');
+            return false;
         }
     });
 
@@ -92,7 +93,7 @@ function func_numTrips(header) {
         content+= '<button type="button" value=' + i + ' class="btn btn-xl btn-success">' + i + ' trips</button>';
     }
     
-    content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numTrips">Specify number of trips</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numTrips"><span class="input-group-addon">trips</span></div><button type="submit" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
+    content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numTrips">Specify number of trips</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numTrips"><span class="input-group-addon">trips</span></div><button type="button" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
         
     selectCtl.append(content);
 
@@ -107,6 +108,7 @@ function func_numTrips(header) {
         } else {
             numTrips = numTripsval;
             func_numStations('On average, how many stations do you plan to commute per trip?');
+            return false;
         }
     });
 
