@@ -290,15 +290,14 @@ function calculate() {
         fareType = fareTripTotal - 50;
     } else if (fareTripTotal > fareStationTotal - 50) {
         if (fareStationTotal - 50 > fareTripBeforeTotal + fareStationLeftOver) {
-            
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit card type B) + Single Journey Ticket';
+            cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit card type B) + Single Journey Ticket';
         } else {
             cardType = 'Single Journey Ticket';
         }
         fareType = fareStationTotal - 50;
     } else if (fareTripTotal > fareStationTotal) {
         if (fareStationTotal > fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit card type B) + Single Journey Ticket';
+            cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit card type B) + Single Journey Ticket';
         } else {
             cardType = 'Single Journey Ticket or Stored Value Card';
         }
