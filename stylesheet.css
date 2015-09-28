@@ -1,0 +1,101 @@
+html {
+    background: url("img/skytrain-03-compressed.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    background-color: transparent;
+    color: white;
+}
+
+
+/*----- Jumbotron -----*/
+
+.container .jumbotron {
+    background-color: transparent;
+    margin-top: 10%;
+    padding-left: 0px;
+}
+
+.jumbotron h1 {font-weight: bold;}
+
+#description {margin-top: 75px;}
+
+
+/*----- Content -----*/
+
+#control {
+    display: table;
+    padding-bottom: 100px;
+}
+
+#control > h3 {margin-bottom: 15px;}
+
+#control button {float: left;}
+
+/* form div */
+#options-sep {
+    border-left: 1px solid #d3d3d3;
+    display: table-cell;
+    padding-left: 10px;
+    vertical-align: middle;
+    height: 150px;
+}
+.div-sep h3 { /* or */
+    float: left;
+    margin: auto 10px auto auto;
+    line-height: 52px;
+}
+#control form {
+    display: table-cell;
+    vertical-align: middle;
+    overflow: auto;
+}
+
+/* form input */
+#control form input[type="number"] {width: 110px;} 
+#control .input-group {margin: 3px 6px 3px 0px;}
+#control form button {margin: 3px 6px 3px 0px;}
+#control form div {float: left;}
+
+
+/*----- Configurations -----*/
+
+.btn-xl {
+    padding: 18px 28px;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: normal;
+    margin: 3px 6px 3px 0px;
+
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+}
+
+.form-group {margin-bottom: inherit;}
+
+.div-sep {
+    display: table;
+    margin-top: -38.5px;
+}
+.div-btnsep {
+    overflow: auto;
+    margin-top: 38.5px;
+}
+
+.input-group-addon, .input-group-btn {width: 0px;}
+
+
+@media screen and (max-width: 768px) {
+    .jumbotron h1 {
+        font-size: 56px;
+    }
+    
+    #option-sep {height: 0px;}
+    .div-sep {margin-top: 0px;}
+    .div-btnsep {margin-top: 0px;}
+}
