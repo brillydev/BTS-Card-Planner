@@ -282,7 +282,7 @@ function calculate() {
     
     // find the fare commuter has to pay per month if he uses normal ticket
     var fareStationTotal = fareStationTrip * numTripsDay * numDays;
-    var fareType, cardType = '', numTripsLoop = 0, numTimes50 = 0, numTimes40 = 0, numTimes25 = 0, numTimes15 = 0, numTimes0 = 0, numCheck = 1;
+    var fareType, cardType = '', numTripsLoop = 0, numTimes50 = 1, numTimes40 = 1, numTimes25 = 1, numTimes15 = 1, numTimes0 = 1, numCheck = 1;
 
     if (fareStationTotal > fareTripTotal) {
         for (; numTripsBeforeTotal > 0; numTripsBeforeTotal -= 50) {
@@ -294,7 +294,7 @@ function calculate() {
                 
                 if (numCheck == 50) {
                     numTimes50++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes50 + '-';
                 } else {
                     numCheck = 50;
@@ -308,7 +308,7 @@ function calculate() {
                 
                 if (numCheck == 40) {
                     numTimes40++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes40 + '-';
                 } else {
                     numCheck = 40;
@@ -322,7 +322,7 @@ function calculate() {
                 
                 if (numCheck == 25) {
                     numTimes25++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes25 + '-';
                 } else {
                     numCheck = 25;
@@ -336,7 +336,7 @@ function calculate() {
                 
                 if (numCheck == 15) {
                     numTimes15++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes15 + '-';
                 } else {
                     numCheck = 15;
@@ -350,7 +350,7 @@ function calculate() {
                 
                 if (numCheck == 0) {
                     numTimes0++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes0 + '-';
                 } else {
                     numCheck = 0;
@@ -369,7 +369,7 @@ function calculate() {
                 
                 if (numCheck == 50) {
                     numTimes50++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes50 + '-';
                 } else {
                     numCheck = 50;
@@ -383,7 +383,7 @@ function calculate() {
                 
                 if (numCheck == 40) {
                     numTimes40++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes40 + '-';
                 } else {
                     numCheck = 40;
@@ -397,7 +397,7 @@ function calculate() {
                 
                 if (numCheck == 25) {
                     numTimes25++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes25 + '-';
                 } else {
                     numCheck = 25;
@@ -411,7 +411,7 @@ function calculate() {
                 
                 if (numCheck == 15) {
                     numTimes15++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes15 + '-';
                 } else {
                     numCheck = 15;
@@ -425,7 +425,7 @@ function calculate() {
                 
                 if (numCheck == 0) {
                     numTimes0++;
-                    cardType = cardType.substring(0, cardType.length - 1 - 36);
+                    cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes0 + '-';
                 } else {
                     numCheck = 0;
