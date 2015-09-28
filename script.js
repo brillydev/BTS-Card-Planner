@@ -30,7 +30,7 @@ function func_travelerNumDays () {
         content+= '<button type="button" value=' + i + ' class="btn btn-xl btn-success">' + i + ' days</button>';
     }
     
-    content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numDays">Specify number of days</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numDays"><span class="input-group-addon">days</span></div><button type="button" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
+    content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numDays">Specify number of days</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numDays"><span class="input-group-addon">days</span></div><button type="submit" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
         
     selectCtl.append(content);
 
@@ -93,7 +93,7 @@ function func_numTrips(header) {
         content+= '<button type="button" value=' + i + ' class="btn btn-xl btn-success">' + i + ' trips</button>';
     }
     
-    content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numTrips">Specify number of trips</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numTrips"><span class="input-group-addon">trips</span></div><button type="button" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
+    content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numTrips">Specify number of trips</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numTrips"><span class="input-group-addon">trips</span></div><button type="submit" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
         
     selectCtl.append(content);
 
@@ -210,22 +210,22 @@ function calculate() {
             } else if (numTrips > 40) {
                 numTripsBeforeTotal += 50;
                 numTripsLeftOver += 40;
-                fareTripBeforeTotal += numTrips - 50 > 0 ? 1250 : 0;
+                fareTripBeforeTotal += numTrips - 40 > 0 ? 1250 : 0;
                 fareTripTotal += 1250;
             } else if (numTrips > 25) {
                 numTripsBeforeTotal += 40;
                 numTripsLeftOver += 25;
-                fareTripBeforeTotal += numTrips - 50 > 0 ? 1040 : 0;
+                fareTripBeforeTotal += numTrips - 25 > 0 ? 1040 : 0;
                 fareTripTotal += 1040;
             } else if (numTrips > 15) {
                 numTripsBeforeTotal += 25;
                 numTripsLeftOver += 15;
-                fareTripBeforeTotal += numTrips - 50 > 0 ? 700 : 0;
+                fareTripBeforeTotal += numTrips - 15 > 0 ? 700 : 0;
                 fareTripTotal += 700;
             } else {
                 numTripsBeforeTotal += 15;
                 numTripsLeftOver += numTrips;
-                fareTripBeforeTotal += numTrips - 50 > 0 ? 450 : 0;
+                fareTripBeforeTotal += numTrips > 0 ? 450 : 0;
                 fareTripTotal += 450;
             }
         }
@@ -239,22 +239,22 @@ function calculate() {
             } else if (numTrips > 40) {
                 numTripsBeforeTotal += 50;
                 numTripsLeftOver += 40;
-                fareTripBeforeTotal += numTrips - 50 > 0 ? 900 : 0;
+                fareTripBeforeTotal += numTrips - 40 > 0 ? 900 : 0;
                 fareTripTotal += 900;
             } else if (numTrips > 25) {
                 numTripsBeforeTotal += 40;
                 numTripsLeftOver += 25;
-                fareTripBeforeTotal += numTrips - 50 > 0 ? 760 : 0;
+                fareTripBeforeTotal += numTrips - 25 > 0 ? 760 : 0;
                 fareTripTotal += 760;
             } else if (numTrips > 15) {
                 numTripsBeforeTotal += 25;
                 numTripsLeftOver += 15;
-                fareTripBeforeTotal += numTrips - 50 > 0 ? 525 : 0;
+                fareTripBeforeTotal += numTrips - 15 > 0 ? 525 : 0;
                 fareTripTotal += 525;
             } else {
                 numTripsBeforeTotal += 15;
                 numTripsLeftOver += numTrips;
-                fareTripBeforeTotal += numTrips - 50 > 0 ? 345 : 0;
+                fareTripBeforeTotal += numTrips > 0 ? 345 : 0;
                 fareTripTotal += 345;
             }
         }
@@ -282,26 +282,26 @@ function calculate() {
     
     // find the fare commuter has to pay per month if he uses normal ticket
     var fareStationTotal = fareStationTrip * numTripsDay * numDays;
-    var fareType, cardType;
+    var fareType, cardType = '', numTripsLoop = 0;
 
     if (fareStationTotal > fareTripTotal) {
-        cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit card type B)';
+        cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit Card Type B)';
         fareType = fareTripTotal;
     } else if (fareStationTotal - 50 > fareTripTotal) {
-        cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit card type B)';
+        cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit Card Type B)';
         fareType = fareTripTotal - 50;
     } else if (fareTripTotal > fareStationTotal - 50) {
         if (fareStationTotal - 50 > fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit card type B) + Single Journey Ticket';
+            cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit Card Type B)<br>+<br> Single Journey Ticket';
         } else {
             cardType = 'Single Journey Ticket';
         }
         fareType = fareStationTotal - 50;
     } else if (fareTripTotal > fareStationTotal) {
         if (fareStationTotal > fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit card type B) + Single Journey Ticket';
+            cardType = numTripsBeforeTotal + ' Trips Ticket (Rabbit Card Type B)<br>+<br> Single Journey Ticket';
         } else {
-            cardType = 'Single Journey Ticket or Stored Value Card';
+            cardType = 'Single Journey Ticket or Stored Value Card (Rabbit Card Type A)';
         }
         fareType = fareStationTotal;
     }
