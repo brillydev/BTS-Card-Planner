@@ -1,6 +1,6 @@
 var selectCtl = $('#control');
 var numDays, numTrips, numStations = null;
-var studentFare, seniorFare = false;
+var studentFare = false, seniorFare = false;
 
 $(function() {
     
@@ -289,7 +289,7 @@ function calculate() {
             if (numTripsBeforeTotal > 50) {
                 numTripsLoop = numTripsBeforeTotal - 50 > 0 ? 50 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 50) {
@@ -303,7 +303,7 @@ function calculate() {
             } else if (numTrips > 40) {
                 numTripsLoop = numTripsBeforeTotal - 40 > 0 ? 50 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 40) {
@@ -317,7 +317,7 @@ function calculate() {
             } else if (numTrips > 25) {
                 numTripsLoop = numTripsBeforeTotal - 25 > 0 ? 40 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 25) {
@@ -331,7 +331,7 @@ function calculate() {
             } else if (numTrips > 15) {
                 numTripsLoop = numTripsBeforeTotal - 15 > 0 ? 25 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 15) {
@@ -345,7 +345,7 @@ function calculate() {
             } else {
                 numTripsLoop = numTripsBeforeTotal > 0 ? 15 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 0) {
@@ -364,7 +364,7 @@ function calculate() {
             if (numTripsBeforeTotal > 50) {
                 numTripsLoop = numTripsBeforeTotal - 50 > 0 ? 50 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 50) {
@@ -378,7 +378,7 @@ function calculate() {
             } else if (numTrips > 40) {
                 numTripsLoop = numTripsBeforeTotal - 40 > 0 ? 50 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 40) {
@@ -392,7 +392,7 @@ function calculate() {
             } else if (numTrips > 25) {
                 numTripsLoop = numTripsBeforeTotal - 25 > 0 ? 40 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 25) {
@@ -406,7 +406,7 @@ function calculate() {
             } else if (numTrips > 15) {
                 numTripsLoop = numTripsBeforeTotal - 15 > 0 ? 25 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 15) {
@@ -420,7 +420,7 @@ function calculate() {
             } else {
                 numTripsLoop = numTripsBeforeTotal > 0 ? 15 : 0;
                 if (cardType !== '') {
-                    cardType += '<br>+<br>'
+                    cardType += '<br>+<br>';
                 }
                 
                 if (numCheck == 0) {
