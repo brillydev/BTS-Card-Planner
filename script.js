@@ -296,7 +296,7 @@ function calculate() {
     var numTripsDay = numTrips;
     numTrips *= numDays;
     var fareTripTotal = 0, fareTripBeforeTotal = 0, numTripsBeforeTotal = 0, numTripsLeftOver = 0;
-    var multipleCards = 0, multipleCardsValue = 0;
+    var multipleCards = 0, multipleCardsValue = 0, fareMultipleCards = 0;
 
     // each loop is for finding out the prices of the total number of trips.
     // included in the loop are several variables for different functionalities, including:
@@ -307,111 +307,123 @@ function calculate() {
     if (studentFare == false) {
         
         if (numTrips % 50 == 0) {
-            fareTripTotal = 1250 * (numTrips / 50);
+            fareMultipleCards = 1250 * (numTrips / 50);
             multipleCards = numTrips / 50;
             multipleCardsValue = 50;
         } else if (numTrips % 40 == 0) {
-            fareTripTotal = 1040 * (numTrips / 40);
+            fareMultipleCards = 1040 * (numTrips / 40);
             multipleCards = numTrips / 40;
             multipleCardsValue = 40;
         } else if (numTrips % 25 == 0) {
-            fareTripTotal = 700 * (numTrips / 25);
+            fareMultipleCards = 700 * (numTrips / 25);
             multipleCards = numTrips / 25;
             multipleCardsValue = 25;
         } else if (numTrips % 15 == 0) {
-            fareTripTotal = 450 * (numTrips / 15);
+            fareMultipleCards = 450 * (numTrips / 15);
             multipleCards = numTrips / 15;
             multipleCardsValue = 15;
-        } else {
+        }
         
-            for (; numTrips > 0;) {
-                if (numTrips > 50) {
-                    numTripsBeforeTotal += 50;
-                    numTripsLeftOver += 50;
-                    fareTripBeforeTotal += numTrips - 50 > 0 ? 1250 : 0;
-                    fareTripTotal += 1250;
-                    numTrips -= 50;
-                } else if (numTrips > 40) {
-                    numTripsBeforeTotal += 50;
-                    numTripsLeftOver += 40;
-                    fareTripBeforeTotal += numTrips - 40 > 0 ? 1250 : 0;
-                    fareTripTotal += 1250;
-                    numTrips -= 50;
-                } else if (numTrips > 25) {
-                    numTripsBeforeTotal += 40;
-                    numTripsLeftOver += 25;
-                    fareTripBeforeTotal += numTrips - 25 > 0 ? 1040 : 0;
-                    fareTripTotal += 1040;
-                    numTrips -= 40;
-                } else if (numTrips > 15) {
-                    numTripsBeforeTotal += 25;
-                    numTripsLeftOver += 15;
-                    fareTripBeforeTotal += numTrips - 15 > 0 ? 700 : 0;
-                    fareTripTotal += 700;
-                    numTrips-= 25;
-                } else {
-                    numTripsBeforeTotal += 15;
-                    numTripsLeftOver += numTrips;
-                    fareTripBeforeTotal += numTrips > 0 ? 450 : 0;
-                    fareTripTotal += 450;
-                    numTrips -= 15;
-                }
+        for (; numTrips > 0;) {
+            if (numTrips > 50) {
+                numTripsBeforeTotal += 50;
+                numTripsLeftOver += 50;
+                fareTripBeforeTotal += numTrips - 50 > 0 ? 1250 : 0;
+                fareTripTotal += 1250;
+                numTrips -= 50;
+            } else if (numTrips > 40) {
+                numTripsBeforeTotal += 50;
+                numTripsLeftOver += 40;
+                fareTripBeforeTotal += numTrips - 40 > 0 ? 1250 : 0;
+                fareTripTotal += 1250;
+                numTrips -= 50;
+            } else if (numTrips > 25) {
+                numTripsBeforeTotal += 40;
+                numTripsLeftOver += 25;
+                fareTripBeforeTotal += numTrips - 25 > 0 ? 1040 : 0;
+                fareTripTotal += 1040;
+                numTrips -= 40;
+            } else if (numTrips > 15) {
+                numTripsBeforeTotal += 25;
+                numTripsLeftOver += 15;
+                fareTripBeforeTotal += numTrips - 15 > 0 ? 700 : 0;
+                fareTripTotal += 700;
+                numTrips-= 25;
+            } else {
+                numTripsBeforeTotal += 15;
+                numTripsLeftOver += numTrips;
+                fareTripBeforeTotal += numTrips > 0 ? 450 : 0;
+                fareTripTotal += 450;
+                numTrips -= 15;
             }
         }
+    
+        if (fareTripTotal > fareMultipleCards) {
+            fareTripTotal = fareMultipleCards;
+        } else {
+            multipleCards = 0;
+        }
+    
     } else {
         
         if (numTrips % 50 == 0) {
-            fareTripTotal = 900 * (numTrips / 50);
+            fareMultipleCards = 900 * (numTrips / 50);
             multipleCards = numTrips / 50;
             multipleCardsValue = 50;
         } else if (numTrips % 40 == 0) {
-            fareTripTotal = 760 * (numTrips / 40);
+            fareMultipleCards = 760 * (numTrips / 40);
             multipleCards = numTrips / 40;
             multipleCardsValue = 40;
         } else if (numTrips % 25 == 0) {
-            fareTripTotal = 525 * (numTrips / 25);
+            fareMultipleCards = 525 * (numTrips / 25);
             multipleCards = numTrips / 25;
             multipleCardsValue = 25;
         } else if (numTrips % 15 == 0) {
-            fareTripTotal = 345 * (numTrips / 15);
+            fareMultipleCards = 345 * (numTrips / 15);
             multipleCards = numTrips / 15;
             multipleCardsValue = 15;
-        } else {
+        }
             
-            for (; numTrips > 0;) {
-                if (numTrips > 50) {
-                    numTripsBeforeTotal += 50;
-                    numTripsLeftOver += 50;
-                    fareTripBeforeTotal += numTrips - 50 > 0 ? 900 : 0;
-                    fareTripTotal += 900;
-                    numTrips -= 50;
-                } else if (numTrips > 40) {
-                    numTripsBeforeTotal += 50;
-                    numTripsLeftOver += 40;
-                    fareTripBeforeTotal += numTrips - 40 > 0 ? 900 : 0;
-                    fareTripTotal += 900;
-                    numTrips -= 50;
-                } else if (numTrips > 25) {
-                    numTripsBeforeTotal += 40;
-                    numTripsLeftOver += 25;
-                    fareTripBeforeTotal += numTrips - 25 > 0 ? 760 : 0;
-                    fareTripTotal += 760;
-                    numTrips -= 40;
-                } else if (numTrips > 15) {
-                    numTripsBeforeTotal += 25;
-                    numTripsLeftOver += 15;
-                    fareTripBeforeTotal += numTrips - 15 > 0 ? 525 : 0;
-                    fareTripTotal += 525;
-                    numTrips -= 25;
-                } else {
-                    numTripsBeforeTotal += 15;
-                    numTripsLeftOver += numTrips;
-                    fareTripBeforeTotal += numTrips > 0 ? 345 : 0;
-                    fareTripTotal += 345;
-                    numTrips -= 15;
-                }
+        for (; numTrips > 0;) {
+            if (numTrips > 50) {
+                numTripsBeforeTotal += 50;
+                numTripsLeftOver += 50;
+                fareTripBeforeTotal += numTrips - 50 > 0 ? 900 : 0;
+                fareTripTotal += 900;
+                numTrips -= 50;
+            } else if (numTrips > 40) {
+                numTripsBeforeTotal += 50;
+                numTripsLeftOver += 40;
+                fareTripBeforeTotal += numTrips - 40 > 0 ? 900 : 0;
+                fareTripTotal += 900;
+                numTrips -= 50;
+            } else if (numTrips > 25) {
+                numTripsBeforeTotal += 40;
+                numTripsLeftOver += 25;
+                fareTripBeforeTotal += numTrips - 25 > 0 ? 760 : 0;
+                fareTripTotal += 760;
+                numTrips -= 40;
+            } else if (numTrips > 15) {
+                numTripsBeforeTotal += 25;
+                numTripsLeftOver += 15;
+                fareTripBeforeTotal += numTrips - 15 > 0 ? 525 : 0;
+                fareTripTotal += 525;
+                numTrips -= 25;
+            } else {
+                numTripsBeforeTotal += 15;
+                numTripsLeftOver += numTrips;
+                fareTripBeforeTotal += numTrips > 0 ? 345 : 0;
+                fareTripTotal += 345;
+                numTrips -= 15;
             }
         }
+        
+        if (fareTripTotal > fareMultipleCards) {
+                fareTripTotal = fareMultipleCards;
+        } else {
+            multipleCards = 0;
+        }
+            
     }
     
     var fareStationTrip = numStations === 1 ? 15 : 22;
