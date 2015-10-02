@@ -5,14 +5,43 @@ var studentFare = false, seniorFare = false;
 $(function() {
     
     $('#btnTraveler').click(func_travelerNumDays);
-    $('#btnAdult').click([true, false], func_normalNumDays);
-    $('#btnStudent').click([false, false], func_normalNumDays);
+    $('#btnAdult').click([false, false], func_normalNumDays);
+    $('#btnStudent').click([true, false], func_normalNumDays);
+    $('#btnSenior').click([false, true], func_normalNumDays);
+    $('#btnChildren').click(func_childrenQuery);
     
-    $('#div-commuter :not(#btnTraveler, #btnAdult, #btnStudent)').click(function() {
-        $('#control *').remove();
-        selectCtl.append('<h1>Coming soon...</h1>');
-    });
 });
+
+/**
+ *  Appends a control asking the how many days a traveller will stay.
+ *  Returns the number of days to calculate.
+ */
+ 
+function func_childrenQuery() {
+    
+    $('#control *').remove();
+    
+    // append numDays options
+    var content = '<h3>Are you taller than 90 cm?</h3><div id="div-children"><button type="button" value=1 class="btn btn-xl btn-success">Yes</button><button type="button" value=0 class="btn btn-xl btn-success">No</button></div>';
+       
+    selectCtl.append(content);
+
+    /* --------------- */
+
+    $('button[class~="btn-success"]').click(function() {
+        
+        switch ($(this).attr("value")) {
+            case ('1'):
+                func_normalNumDays(false, false);
+                break;
+            case ('0'):
+                $('#control *').remove();
+                selectCtl.append('<h1><b>You are eligible for free travel.</b></h1><h3>No ticket needed.</h3>');
+                break;
+        }
+    });
+
+}
 
 
 /**
@@ -394,6 +423,36 @@ function calculate() {
             for (var i = 2; i < numStations; i++, fareStationTrip += 3) {}
         }
     }
+    
+    if (seniorFare) {
+        switch (fareStationTrip) {
+            case 15:
+                fareStationTrip = 7;
+                break;
+            case 22:
+                fareStationTrip = 11;
+                break;
+            case 25:
+                fareStationTrip = 13;
+                break;
+            case 28:
+                fareStationTrip = 14;
+                break;
+            case 31:
+                fareStationTrip = 16;
+                break;
+            case 34:
+                fareStationTrip = 17;
+                break;
+            case 37:
+                fareStationTrip = 19;
+                break;
+            case 42:
+                fareStationTrip = 21;
+                break;
+        }
+    }
+
     
     // find the fare commuter has to pay per month if he uses normal ticket
     var fareStationTotal = fareStationTrip * numTripsDay * numDays;
