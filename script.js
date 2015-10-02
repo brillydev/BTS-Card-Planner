@@ -40,7 +40,7 @@ function func_travelerNumDays () {
         var numDaysval = $('#numDays').val();
         
         if (numDaysval <= 0 || numDaysval == null) {
-            alert('Please enter a number of value higher than 0 and try again.');
+            alert('Please enter a number greater than 0 and try again.');
             return false;
         } else if (numDaysval > 30) {
             alert('We do not currently support planning for duration exceeding a month, sir. Please try again.');
@@ -103,7 +103,7 @@ function func_numTrips(header) {
         var numTripsval = $('#numTrips').val();
         
         if (numTripsval <= 0 || numTripsval == null) {
-            alert('Please enter a number of value higher than 0 and try again.');
+            alert('Please enter a number greater than 0 and try again.');
             return false;
         } else {
             numTrips = numTripsval;
@@ -318,6 +318,11 @@ function calculate() {
                     numTimes40++;
                     cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes40 + '-';
+                } else if (numCheck == 50 && numTripsBeforeTotal- 50 == 0) {
+                    numTimes50++;
+                    cardType = cardType.substring(0, cardType.length - 1 - 46);
+                    cardType += numTimes50 + '-';
+                    numCheck = 50;
                 } else {
                     numCheck = 40;
                 }
@@ -333,6 +338,11 @@ function calculate() {
                     numTimes25++;
                     cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes25 + '-';
+                } else if (numCheck == 40 && numTripsBeforeTotal- 40 == 0) {
+                    numTimes40++;
+                    cardType = cardType.substring(0, cardType.length - 1 - 46);
+                    cardType += numTimes40 + '-';
+                    numCheck = 40;
                 } else {
                     numCheck = 25;
                 }
@@ -348,6 +358,11 @@ function calculate() {
                     numTimes15++;
                     cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes15 + '-';
+                } else if (numCheck == 25 && numTripsBeforeTotal- 25 == 0) {
+                    numTimes25++;
+                    cardType = cardType.substring(0, cardType.length - 1 - 46);
+                    cardType += numTimes25 + '-';
+                    numCheck = 25;
                 } else {
                     numCheck = 15;
                 }
@@ -363,6 +378,11 @@ function calculate() {
                     numTimes0++;
                     cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes0 + '-';
+                } else if (numCheck == 15 && numTripsBeforeTotal- 15 == 0) {
+                    numTimes15++;
+                    cardType = cardType.substring(0, cardType.length - 1 - 46);
+                    cardType += numTimes15 + '-';
+                    numCheck = 15;
                 } else {
                     numCheck = 0;
                 }
@@ -398,6 +418,11 @@ function calculate() {
                     numTimes40++;
                     cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes40 + '-';
+                } else if (numCheck == 50 && numTripsBeforeTotal- 50 == 0) {
+                    numTimes50++;
+                    cardType = cardType.substring(0, cardType.length - 1 - 46);
+                    cardType += numTimes50 + '-';
+                    numCheck = 50;
                 } else {
                     numCheck = 40;
                 }
@@ -413,6 +438,11 @@ function calculate() {
                     numTimes25++;
                     cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes25 + '-';
+                } else if (numCheck == 40 && numTripsBeforeTotal- 40 == 0) {
+                    numTimes40++;
+                    cardType = cardType.substring(0, cardType.length - 1 - 46);
+                    cardType += numTimes40 + '-';
+                    numCheck = 40;
                 } else {
                     numCheck = 25;
                 }
@@ -428,6 +458,11 @@ function calculate() {
                     numTimes15++;
                     cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes15 + '-';
+                } else if (numCheck == 25 && numTripsBeforeTotal- 25 == 0) {
+                    numTimes25++;
+                    cardType = cardType.substring(0, cardType.length - 1 - 46);
+                    cardType += numTimes25 + '-';
+                    numCheck = 25;
                 } else {
                     numCheck = 15;
                 }
@@ -443,11 +478,16 @@ function calculate() {
                     numTimes0++;
                     cardType = cardType.substring(0, cardType.length - 1 - 44);
                     cardType += numTimes0 + '-';
+                } else if (numCheck == 15 && numTripsBeforeTotal- 15 == 0) {
+                    numTimes15++;
+                    cardType = cardType.substring(0, cardType.length - 1 - 46);
+                    cardType += numTimes15 + '-';
+                    numCheck = 15;
                 } else {
                     numCheck = 0;
                 }
                 cardType += numTripsLoop + ' Trips Ticket (Rabbit Card Type B)';
-                numTripsBeforeTotal -= 25;
+                numTripsBeforeTotal -= 15;
             }
         }
         fareType = fareTripTotal - 50;
