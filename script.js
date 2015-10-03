@@ -720,11 +720,11 @@ function calculate() {
         
     } else if (fareTripTotal > fareStationTotal) {
         if (fareStationTotal > fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Hybrid Ticket (Rabbit Card Type A+B)';
+            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>' + numTripsLeftOver + ' Trips + ' + fareStationLeftOver + ' Baht Hybrid Ticket (Rabbit Card Type A+B)';
         } else if (fareStationTotal == fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket<br><br></b>or<br><br><b>Stored Value Card (Rabbit Card Type A)';
+            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket<br><br></b>or<br><br><b>' + fareStationLeftOver + ' Baht Stored Value Card (Rabbit Card Type A)<br><br></b>or<br><br><b>' + numTripsLeftOver + ' Trips + ' + fareStationLeftOver + ' Baht Hybrid Ticket (Rabbit Card Type A+B)';
         } else {
-            cardType = 'Single Journey Ticket<br><br></b>or<br><br><b>Stored Value Card (Rabbit Card Type A)';
+            cardType = 'Single Journey Ticket<br><br></b>or<br><br><b>' + fareStationTotal + ' Baht Stored Value Card (Rabbit Card Type A)';
         }
         fareType = fareStationTotal;
         
@@ -733,7 +733,7 @@ function calculate() {
         
     } else if (fareTripTotal > fareStationTotal - 50) {
         if (fareStationTotal - 50 > fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Hybrid Ticket (Rabbit Card Type A+B)';
+            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>' + numTripsLeftOver + ' Trips + ' + fareStationLeftOver + ' Baht Hybrid Ticket (Rabbit Card Type A+B)';
         } else if (fareStationTotal - 50 == fareTripBeforeTotal + fareStationLeftOver) {
             cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket';
         } else {
