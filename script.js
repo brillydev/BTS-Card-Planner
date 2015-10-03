@@ -468,6 +468,8 @@ function calculate() {
 
 
     // actual comparison
+    
+    // for Rabbit Type A > Rabbit Type B
     if (fareStationTotal > fareTripTotal) {
         
         if (multipleCards != 0) {
@@ -589,6 +591,10 @@ function calculate() {
             }
         }
         fareType = fareTripTotal;
+        
+        
+    // for Single Journey > Rabbit Type B
+    
     } else if (fareStationTotal - 50 > fareTripTotal) {
         if (multipleCards != 0) {
             cardType = multipleCards + '-' + multipleCardsValue + ' Trips Ticket (Rabbit Card Type B)';
@@ -708,20 +714,28 @@ function calculate() {
             }
         }
         fareType = fareTripTotal - 50;
+        
+        
+    // for Rabbit Type B > Rabbit Type A
+        
     } else if (fareTripTotal > fareStationTotal) {
         if (fareStationTotal > fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B)<br>+<br>Single Journey Ticket';
+            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Hybrid Ticket (Rabbit Card Type A+B)';
         } else if (fareStationTotal == fareTripBeforeTotal + fareStationLeftOver) {
             cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket<br><br></b>or<br><br><b>Stored Value Card (Rabbit Card Type A)';
         } else {
             cardType = 'Single Journey Ticket<br><br></b>or<br><br><b>Stored Value Card (Rabbit Card Type A)';
         }
         fareType = fareStationTotal;
+        
+        
+    // for Rabbit Type B > Single Journey
+        
     } else if (fareTripTotal > fareStationTotal - 50) {
         if (fareStationTotal - 50 > fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B)<br>+<br>Single Journey Ticket';
+            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Hybrid Ticket (Rabbit Card Type A+B)';
         } else if (fareStationTotal - 50 == fareTripBeforeTotal + fareStationLeftOver) {
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket<br><br></b>or<br><br><b>Stored Value Card (Rabbit Card Type A)';
+            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket';
         } else {
             cardType = 'Single Journey Ticket';
         }
