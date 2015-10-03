@@ -61,6 +61,10 @@ body {
 #control form button {margin: 3px 6px 3px 0px;}
 #control form div {float: left;}
 
+#div-children button {
+    margin: 3px 18px 3px 0px;
+}
+
 
 /*----- Configurations -----*/
 
