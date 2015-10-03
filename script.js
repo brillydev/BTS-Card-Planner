@@ -4,6 +4,10 @@ var studentFare = false, seniorFare = false;
 
 $(function() {
     
+    $('#info').click(function() {
+       $('#div-info').toggle();
+       return false;
+    });
     $('#btnTraveler').click(func_travelerNumDays);
     $('#btnAdult').click(function() {func_normalNumDays();});
     $('#btnStudent').click(function() {studentFare = true; func_normalNumDays();});
@@ -19,7 +23,7 @@ $(function() {
  
 function func_childrenQuery() {
     
-    $('#control *').remove();
+    selectCtl.children().remove();
     
     // append numDays options
     var content = '<h3>Are you taller than 90 cm?</h3><div id="div-children"><button type="button" value=1 class="btn btn-xl btn-success">Yes</button><button type="button" value=0 class="btn btn-xl btn-success">No</button></div>';
@@ -35,7 +39,7 @@ function func_childrenQuery() {
                 func_normalNumDays(false, false);
                 break;
             case ('0'):
-                $('#control *').remove();
+                selectCtl.children().remove();
                 selectCtl.append('<h1><b>You are eligible for free travel.</b></h1><h3>No ticket needed.</h3>');
                 break;
         }
@@ -51,10 +55,10 @@ function func_childrenQuery() {
  
 function func_normalNumDays() {
     
-    $('#control *').remove();
+    selectCtl.children().remove();
     
     // append numDays options
-    var content = '<h3>How often do you commute per month?</h3><div class="div-sep"><div class="div-btnsep"><button type="button" value=30 class="btn btn-xl btn-success">Everyday</button><button type="button" value=20 class="btn btn-xl btn-success">Every weekday</button><button type="button" value=8 class="btn btn-xl btn-success">Every weekend</button>';
+    var content = '<h3>How often do you commute per month?</h3><div class="div-sep"><div class="div-btnsep"><button type="button" value=30 class="btn btn-xl btn-success">Everyday</button><button type="button" value=20 class="btn btn-xl btn-success">Every Weekday</button><button type="button" value=8 class="btn btn-xl btn-success">Every Weekend</button>';
     
     content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numDays">Specify number of days</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numDays"><span class="input-group-addon">days</span></div><button type="submit" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
         
@@ -104,7 +108,7 @@ function func_normalNumDays() {
  
 function func_travelerNumDays () {
     
-    $('#control *').remove();
+    selectCtl.children().remove();
     
     // append numDays options
     var content = '<h3>How long will you be staying in Bangkok?</h3><div class="div-sep"><div class="div-btnsep"><button type="button" value=1 class="btn btn-xl btn-success">1 day</button>';
@@ -167,7 +171,7 @@ function func_travelerNumDays () {
  */
 
 function func_numTrips(header, traveler) {
-    $('#control *').remove();
+    selectCtl.children().remove();
     
     // append numTrips options
     var content = '<h3>' + header + '</h3><div class="div-sep"><div class="div-btnsep"><button type="button" value=1 class="btn btn-xl btn-success">1 trip</button>';
@@ -234,7 +238,7 @@ function func_numTrips(header, traveler) {
  */
 
 function func_numStations(header) {
-    $('#control *').remove();
+    selectCtl.children().remove();
     
     // append numStations options
     var content = '<h3>' + header + '</h3><div id="div-numStations"><button type="button" value=1 class="btn btn-xl btn-success">1 station</button>';
@@ -754,7 +758,7 @@ function calculate() {
  */
 
 function display(cardType) {
-    $('#control *').remove();
+    selectCtl.children().remove();
     selectCtl.append('<h3>The ticket type recommended is:</h3><h1><b>' + cardType + '</b></h1>');
 }
 

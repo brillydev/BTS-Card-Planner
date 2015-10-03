@@ -36,6 +36,14 @@ body {
 
 #control button {float: left;}
 
+#div-info {margin-top: -50px;}
+
+#info {
+    position: relative;
+    top: -80px;
+    color: #fff;
+}
+
 /* form div */
 #options-sep {
     border-left: 1px solid #d3d3d3;
@@ -89,6 +97,10 @@ body {
 .div-btnsep {
     overflow: auto;
     margin-top: 38.5px;
+}
+
+#div-info {
+    display: none;
 }
 
 .input-group-addon, .input-group-btn {width: 0px;}
