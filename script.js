@@ -358,7 +358,7 @@ function calculate() {
             }
         }
     
-        if (fareTripTotal > fareMultipleCards) {
+        if (fareTripTotal > fareMultipleCards && fareMultipleCards !== 0) {
             fareTripTotal = fareMultipleCards;
         } else {
             multipleCards = 0;
@@ -417,7 +417,7 @@ function calculate() {
             }
         }
         
-        if (fareTripTotal > fareMultipleCards) {
+        if (fareTripTotal > fareMultipleCards && fareMultipleCards !== 0) {
                 fareTripTotal = fareMultipleCards;
         } else {
             multipleCards = 0;
@@ -467,7 +467,7 @@ function calculate() {
     
     // find the fare commuter has to pay per month if he uses normal ticket
     var fareStationTotal = fareStationTrip * numTripsDay * numDays;
-    var fareStationLeftOver = fareStationTrip * ((numTripsDay * numDays) - numTripsLeftOver);
+    var fareStationLeftOver = numTripsLeftOver === 0 ? 0 : fareStationTrip * ((numTripsDay * numDays) - numTripsLeftOver);
     var fareType, cardType = '', numTripsLoop = 0, numTimes50 = 1, numTimes40 = 1, numTimes25 = 1, numTimes15 = 1, numTimes0 = 1, numCheck = 1;
 
 
@@ -723,7 +723,7 @@ function calculate() {
     // for Rabbit Type B > Rabbit Type A
         
     } else if (fareTripTotal > fareStationTotal) {
-        if (fareStationTotal > fareTripBeforeTotal + fareStationLeftOver) {
+        if (fareStationTotal > fareTripBeforeTotal + fareStationLeftOver && fareTripBeforeTotal !== 0) {
             cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>' + numTripsLeftOver + ' Trips + ' + fareStationLeftOver + ' Baht Hybrid Ticket (Rabbit Card Type A+B)';
         } else if (fareStationTotal == fareTripBeforeTotal + fareStationLeftOver) {
             cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket<br><br></b>or<br><br><b>' + fareStationLeftOver + ' Baht Stored Value Card (Rabbit Card Type A)<br><br></b>or<br><br><b>' + numTripsLeftOver + ' Trips + ' + fareStationLeftOver + ' Baht Hybrid Ticket (Rabbit Card Type A+B)';
@@ -736,7 +736,7 @@ function calculate() {
     // for Rabbit Type B > Single Journey
         
     } else if (fareTripTotal > fareStationTotal - 50) {
-        if (fareStationTotal - 50 > fareTripBeforeTotal + fareStationLeftOver) {
+        if (fareStationTotal - 50 > fareTripBeforeTotal + fareStationLeftOver && fareTripBeforeTotal !== 0) {
             cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>' + numTripsLeftOver + ' Trips + ' + fareStationLeftOver + ' Baht Hybrid Ticket (Rabbit Card Type A+B)';
         } else if (fareStationTotal - 50 == fareTripBeforeTotal + fareStationLeftOver) {
             cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B) + Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket';
