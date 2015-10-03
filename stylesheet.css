@@ -36,7 +36,10 @@ body {
 
 #control button {float: left;}
 
-#div-info {margin-top: -50px;}
+#div-info {
+    margin-top: -50px;
+    padding-bottom: 100px;
+}
 
 #info {
     position: relative;
