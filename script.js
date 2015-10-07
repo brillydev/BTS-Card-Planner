@@ -332,11 +332,18 @@ function calculate() {
             cardType += numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B)<br>+<br>Single Journey Ticket<br><br></b>or<br><br><b>' + numTripsLeftOver + ' Trips + ' + fareStationLeftOver + ' Baht Hybrid Ticket (Rabbit Card Type A+B)';
         } else if (fareStationTotal - 50 == fareTripBeforeTotal + fareStationLeftOver) {
             cardType += prettyTrips(multipleCards, multipleCardsValue, numTripsLeftOver);
-            cardType = numTripsLeftOver + ' Trips Ticket (Rabbit Card Type B)<br>+<br>Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket';
+            cardType += '<br>+<br>Single Journey Ticket<br><br></b>or<br><br><b>Single Journey Ticket';
         } else {
             cardType = 'Single Journey Ticket';
         }
         fareType = fareStationTotal - 50;
+        
+    // equal price
+    
+    } else if (fareTripTotal == fareStationTotal) {
+        cardType += prettyTrips(multipleCards, multipleCardsValue, numTripsLeftOver);
+        cardType += '<br><br></b>or<br><br><b>Single Journey Ticket<br><br></b>or<br><br><b>' + fareStationTotal + ' Baht Stored Value Card (Rabbit Card Type A)';
+        fareType = fareStationTotal;
     }
     
     if (fareType / numDays > 140) {
