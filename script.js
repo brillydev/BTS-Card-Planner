@@ -71,15 +71,13 @@ function func_normalNumDays() {
         
         if (numDaysval <= 0 || numDaysval == null) {
             alert('Please enter a number greater than 0 and try again.');
-            return false;
         } else if (numDaysval > 30) {
             alert('We do not currently support planning for duration exceeding a month, sir. Please try again.');
-            return false;
         } else {
             numDays = numDaysval;
             func_numTrips('On average, how many BTS trips do you take per day?');
-            return false;
         }
+        return false;
     });
 
     $('button[class~="btn-success"]').click(function() {
@@ -117,36 +115,17 @@ function func_travelerNumDays () {
         
         if (numDaysval <= 0 || numDaysval == null) {
             alert('Please enter a number greater than 0 and try again.');
-            return false;
         } else if (numDaysval > 30) {
             alert('We do not currently support planning for duration exceeding a month, sir. Please try again.');
-            return false;
         } else {
             numDays = numDaysval;
             func_numTrips('On average, how many BTS trips do you plan to take per day?', true);
-            return false;
         }
+        return false;
     });
 
     $('button[class~="btn-success"]').click(function() {
-        
-        switch ($(this).attr("value")) {
-            case ('1'):
-                numDays = 1;
-                break;
-            case ('2'):
-                numDays = 2;
-                break;
-            case ('3'): 
-                numDays = 3;
-                break;
-            case ('4'):
-                numDays = 4;
-                break;
-            case ('5'):
-                numDays = 5;
-                break;
-        }
+        numDays = parseInt($(this).attr("value"), 10);
         func_numTrips('On average, how many BTS trips do you plan to take per day?', true);
     });
 
