@@ -58,7 +58,7 @@ function func_normalNumDays() {
     selectCtl.children().remove();
     
     // append numDays options
-    var content = '<h3>How often do you commute per month?</h3><div class="div-sep"><div class="div-btnsep"><button type="button" value=30 class="btn btn-xl btn-success">Everyday</button><button type="button" value=20 class="btn btn-xl btn-success">Every Weekday</button><button type="button" value=8 class="btn btn-xl btn-success">Every Weekend</button>';
+    var content = '<h3>How often do you commute per month?</h3><div class="div-sep"><div class="div-btnsep"><button type="button" value=30 class="btn btn-xl btn-success">Every Day</button><button type="button" value=20 class="btn btn-xl btn-success">Every Weekday</button><button type="button" value=8 class="btn btn-xl btn-success">Every Weekend</button>';
     
     content += '</div><div id="options-sep"><form role="form"><h3>or</h3><div class="form-group"><div id="div-inputsep"><label class="sr-only" for="numDays">Specify number of days</label><div class="input-group input-group-lg"><input type="number" class="form-control" placeholder="Specify" id="numDays"><span class="input-group-addon">days</span></div><button type="submit" class="btn btn-default btn-lg">Go</button></div></div></form></div></div>';
         
